@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Michele's personal site</title>
+</head>
+
+<body>
+    <!--- Hi, this site is all hardcoded lol-->
+    <!--<div id="latbar">
+        <input type="checkbox">
+        <div class="barcontent">
+            <ul>
+                <li>About</li>
+                <li>Projects</li>
+                <li>Contacts</li>
+                <li>Discord</li>
+            </ul>
+        </div>
+    </div>-->
+    <span class="main">
+        <div class="topbar">
+            <h1>Michele Vantaggi</h1>
+        </div>
+        <div class="content">
+            <div class="about">
+                <h2>About me</h2>
+                <p>I'm an italian student from Gubbio.</p>
+                <p>I'm interested in I.T., specifically in Artificial Intelligence and Robotics.</p>
+                <p>I have many hobbies, one these is 3d modeling and shading on Blender, I also created an <a href="https://www.instagram.com/michi.stuffs/" target="_blank">Instagram page</a> for my renders!</p>
+                <p>I'm always open for adventures, expecially in the programming branch, there are some examples on my "<a href="#projects">Projects</a>" tab</p>
+            </div>
+            <div class="projects">
+                <h2> <a name="projects">Projects</a> </h2>
+                <p>Check my <a href="https://github.com/michelevantaggi02" target="_blank">GitHub</a> for my repositories!</p>
+                <div class="examples">
+                    <span class="example">
+                        <h3>Ok</h3>
+                        <a href="https://github.com/michelevantaggi02/ok" target="_blank"><img src="imgs/ok.png" alt="ok graphs"></a>
+                        <p>An automated program that counts how many times "ok" is said in a video</p>
+                    </span>
+                </div>
+            </div>
+            <div class="contacts">
+                <h2>Contacts</h2>
+                <ul>
+                    <li><a href="mailto:michelevantaggi02@gmail.com">Personal Email</a></li>
+                    <li><a href="mailto:michele.vantaggi@studenti.unipg.it">University Email</a></li>
+                </ul>
+                <h2>Follow me on my socials!</h2>
+                <p>
+                    <a href="https://www.instagram.com/michivanta.exe/" target="_blank"><img src="imgs/insta.png" alt="instagram link" class="social_icon"></a>
+                    <a href="https://twitter.com/MichiVanta" target="_blank"><img src="imgs/twit.png" alt="twitter link" class="social_icon"></a>
+                    <a href="https://www.reddit.com/user/michi_vanta" target="_blank"><img src="imgs/reddit.png" alt="reddit link" class="social_icon"></a>
+                </p>
+            </div>
+        </div>
+    </span>
+</body>
+<footer>
+    <p></p>
+</footer>
+
+</html>
