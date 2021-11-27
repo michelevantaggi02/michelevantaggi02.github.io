@@ -127,3 +127,17 @@ h1, h2{
     width: 100px;
     height: 100px;
 }
+.little_icon{
+  width: 1em;
+  height: 1em;
+}
+
+a:link, a:visited{
+  color:darkcyan;
+}
+
+#socials{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

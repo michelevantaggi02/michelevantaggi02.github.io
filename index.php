@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="favicon.ico">
     <title>Michele's personal site</title>
 </head>
 
@@ -29,10 +30,14 @@
         <div class="content">
             <div class="about">
                 <h2>About me</h2>
-                <p>I'm an italian student from Gubbio.</p>
+                <p>I'm an italian University student from Gubbio.</p>
+                <p>Actually studying for University of Perugia.</p>
                 <p>I'm interested in I.T., specifically in Artificial Intelligence and Robotics.</p>
-                <p>I have many hobbies, one these is 3d modeling and shading on Blender, I also created an <a href="https://www.instagram.com/michi.stuffs/" target="_blank">Instagram page</a> for my renders!</p>
+                <p>I have many hobbies, one these is 3d modeling and shading with Blender, I also created an <a href="https://www.instagram.com/michi.stuffs/" target="_blank">Instagram page</a> for my renders!</p>
                 <p>I'm always open for adventures, expecially in the programming branch, there are some examples on my "<a href="#projects">Projects</a>" tab</p>
+                <div class="">
+
+                </div>
             </div>
             <div class="projects">
                 <h2> <a name="projects">Projects</a> </h2>
@@ -48,11 +53,11 @@
             <div class="contacts">
                 <h2>Contacts</h2>
                 <ul>
-                    <li><a href="mailto:michelevantaggi02@gmail.com">Personal Email</a></li>
-                    <li><a href="mailto:michele.vantaggi@studenti.unipg.it">University Email</a></li>
+                    <li><a href="mailto:michelevantaggi02@gmail.com">Personal Email <img src="https://lh3.googleusercontent.com/0rpHlrX8IG77awQMuUZpQ0zGWT7HRYtpncsuRnFo6V3c8Lh2hPjXnEuhDDd-OsLz1vua4ld2rlUYFAaBYk-rZCODmi2eJlwUEVsZgg" class="little_icon"></a></li>
+                    <li><a href="mailto:michele.vantaggi@studenti.unipg.it">University Email <img src="https://upload.wikimedia.org/wikipedia/it/4/48/Logo_Universit%C3%A0_di_Perugia.gif" class="little_icon"></a></li>
                 </ul>
                 <h2>Follow me on my socials!</h2>
-                <p>
+                <p id="socials">
                     <a href="https://www.instagram.com/michivanta.exe/" target="_blank"><img src="imgs/insta.png" alt="instagram link" class="social_icon"></a>
                     <a href="https://twitter.com/MichiVanta" target="_blank"><img src="imgs/twit.png" alt="twitter link" class="social_icon"></a>
                     <a href="https://www.reddit.com/user/michi_vanta" target="_blank"><img src="imgs/reddit.png" alt="reddit link" class="social_icon"></a>
