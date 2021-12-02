@@ -33,10 +33,13 @@
                 <p>I'm an italian University student from Gubbio.</p>
                 <p>Actually studying for University of Perugia.</p>
                 <p>I'm interested in I.T., specifically in Artificial Intelligence and Robotics.</p>
-                <p>I have many hobbies, one these is 3d modeling and shading with Blender, I also created an <a href="https://www.instagram.com/michi.stuffs/" target="_blank">Instagram page</a> for my renders!</p>
+                <p>I have many hobbies, one of these is 3d modeling and shading with Blender, I also created an <a href="https://www.instagram.com/michi.stuffs/" target="_blank">Instagram page</a> for my renders!</p>
                 <p>I'm always open for adventures, expecially in the programming branch, there are some examples on my "<a href="#projects">Projects</a>" tab</p>
-                <div class="">
-
+                <h3>My experience</h3>
+                <div class="experiences">
+                    <div class="exp">
+                        <h3>Blender</h3>
+                    </div>
                 </div>
             </div>
             <div class="projects">

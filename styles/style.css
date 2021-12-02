@@ -7,22 +7,25 @@ html,body{
     height: 100%;
     width: 100%;
     background-image: url("../imgs/random.php");
-    background-size: cover;
+    background-size: auto;
     background-attachment: fixed;
     font-family: "Open Sans", sans-serif;
 
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
-body::-webkit-scrollbar {
+*{
+
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+*::-webkit-scrollbar {
     display: none;
 }
 
@@ -42,11 +45,19 @@ input[type="checkbox"]:checked + .barcontent{
     padding:.3em;
     text-align: center;
     border: .1em solid white;
-    width: fit-content;
-    transition: 1s;
+    max-width: fit-content;
+    min-width: 0;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: type 3.5s steps(32, end) forwards;
+    animation-delay: .2s;
+}
+@keyframes type {
+  from { width: 0 }
+    to { width: 100% }
 }
 .main>.topbar{
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +67,7 @@ input[type="checkbox"]:checked + .barcontent{
     font-size: x-large;
     animation: init_anim 1.5s forwards;
     animation-timing-function: ease-out;
-    animation-delay: 1s;
+    animation-delay: 4s;
 }
 
 @keyframes init_anim {
@@ -83,11 +94,17 @@ h1, h2{
     padding: 1em;
     background-color: rgba(0, 0, 0, 0.7);
     margin: 1em;
+    overflow: scroll;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+
 }
 .content > div{
     padding:2em;
     background-color: rgba(0, 0, 0, 0.5);
     margin-top: 1em;
+    height: 100vh;
+    scroll-snap-align: start;
 }
 
 .examples{
@@ -99,6 +116,7 @@ h1, h2{
     padding: 1em;
 }
 .example{
+  /*TODO:https://www.youtube.com/watch?v=Qf3pza8ZhcA&t=0s*/
     background-color: black;
     border-radius: 1em;
     padding: 1em;
@@ -140,4 +158,8 @@ a:link, a:visited{
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.experiences{
+  display: flex;
 }
