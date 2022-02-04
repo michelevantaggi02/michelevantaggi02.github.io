@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +10,6 @@
 </head>
 
 <body>
-    <!--- Hi, this site is all hardcoded lol-->
     <!--<div id="latbar">
         <input type="checkbox">
         <div class="barcontent">
@@ -44,13 +42,13 @@
             </div>
             <div class="projects">
                 <h2> <a name="projects">Projects</a> </h2>
-                <p>Check my <a href="https://github.com/michelevantaggi02" target="_blank">GitHub</a> for my repositories!</p>
+                <p>My public repositories available on <a href="https://github.com/michelevantaggi02" target="_blank">GitHub</a>!</p>
                 <div class="examples">
-                    <span class="example">
+                <!--<span class="example">
                         <h3>Ok</h3>
                         <a href="https://github.com/michelevantaggi02/ok" target="_blank"><img src="imgs/ok.png" alt="ok graphs"></a>
                         <p>An automated program that counts how many times "ok" is said in a video</p>
-                    </span>
+                    </span>-->
                 </div>
             </div>
             <div class="contacts">
@@ -72,5 +70,5 @@
 <footer>
     <p></p>
 </footer>
-
+<script src="script.js"></script>
 </html>
