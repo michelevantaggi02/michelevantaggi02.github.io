@@ -1,2 +1,0 @@
-# sito
- Personal site
