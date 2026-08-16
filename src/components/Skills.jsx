@@ -1,45 +1,64 @@
 import React from 'react';
-import { Code, Server, Wrench, Layers } from 'lucide-react';
+import { Eye, Code, Smartphone, Terminal, ArrowDown } from 'lucide-react';
 
-export default function Skills() {
+export default function Skills({ onSelectSkill }) {
   const skillCategories = [
     {
-      title: 'Linguaggi di Programmazione',
+      title: 'Computer Vision & AI',
+      icon: Eye,
+      skills: ['OpenCV', 'YOLO', 'FastReID', 'DeepSort', 'Tesseract'],
+    },
+    {
+      title: 'Linguaggi Principali & Sistemi',
       icon: Code,
-      skills: ['Rust', 'Python', 'C / C++', 'JavaScript (ES6+)', 'Lua', 'LaTeX'],
+      skills: ['Java', 'C#', 'Dart', 'Rust', 'Python', 'C / C++', 'Lua', 'SQL'],
     },
     {
-      title: 'Sviluppo Web & Framework',
-      icon: Server,
-      skills: ['React', 'Vite', 'Node.js', 'REST APIs', 'HTML5 / Modern CSS', 'JSON/MDX'],
+      title: 'Mobile & Web Development',
+      icon: Smartphone,
+      skills: ['Flutter (iOS/Android)', 'React', 'PHP', 'JSP', 'HTML5 / CSS3'],
     },
     {
-      title: 'Sistemi & DevOps',
-      icon: Wrench,
-      skills: ['Linux (Arch/AwesomeWM)', 'Git / GitHub', 'Makefile / Build Tools', 'Docker', 'Bash Shell'],
-    },
-    {
-      title: 'Aree di Specializzazione',
-      icon: Layers,
-      skills: ['Algoritmi & Strutture Dati', 'Reverse Engineering Base', 'Sistemi Embedded / Microcontrollori', 'Robotica'],
+      title: 'Server, Database & Tools',
+      icon: Terminal,
+      skills: ['Linux', 'Git / GitHub', 'MySQL', 'Tomcat', 'Certbot / TLS', 'Docker'],
     },
   ];
+
+  const handleSkillClick = (skillName) => {
+    const cleanName = skillName.split(' ')[0];
+    if (onSelectSkill) {
+      onSelectSkill(cleanName);
+    }
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="skills" className="section">
       <div className="container">
         <div className="section-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-muted)', fontSize: '0.85rem', fontFamily: 'var(--font-mono)', marginBottom: '0.5rem' }}>
+          <div className="section-prefix">
             <Code size={16} aria-hidden="true" />
-            <span>02 / Tecnologie</span>
+            <span>01 / Competenze Tecniche</span>
           </div>
-          <h2 className="section-title">Skills &amp; Tech Stack</h2>
+
+          <h2 className="section-title">Skills &amp; Tecnologie</h2>
           <p className="section-subtitle">
-            Gli strumenti, i linguaggi ed i sistemi che utilizzo quotidianamente.
+            Seleziona una tecnologia per filtrare istantaneamente i relativi progetti pubblici su GitHub.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.25rem',
+            marginTop: '2rem',
+          }}
+        >
           {skillCategories.map((category) => {
             const IconComponent = category.icon;
             return (
@@ -51,9 +70,28 @@ export default function Skills() {
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {category.skills.map((skill) => (
-                    <span key={skill} className="badge">
-                      {skill}
-                    </span>
+                    <button
+                      key={skill}
+                      onClick={() => handleSkillClick(skill)}
+                      className="badge"
+                      style={{
+                        cursor: 'pointer',
+                        transition: 'all var(--transition-fast)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = 'var(--accent-teal-light)';
+                        e.currentTarget.style.color = 'var(--accent-teal-light)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                        e.currentTarget.style.color = 'var(--text-secondary)';
+                      }}
+                      aria-label={`Filtra i progetti per ${skill} e scorri alla sezione progetti`}
+                      title={`Filtra progetti per ${skill}`}
+                    >
+                      <span>{skill}</span>
+                      <ArrowDown size={12} aria-hidden="true" style={{ opacity: 0.6 }} />
+                    </button>
                   ))}
                 </div>
               </div>

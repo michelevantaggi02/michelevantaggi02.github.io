@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { FolderGit2, Search } from 'lucide-react';
+import { FolderGit2, Search, RotateCcw, ArrowUpRight } from 'lucide-react';
 import { useGithubProjects } from '../../services/useGithubProjects';
+import GithubIcon from '../icons/GithubIcon';
 import ProjectCard from './ProjectCard';
 import ProjectSkeleton from './ProjectSkeleton';
 
-export default function ProjectsGrid() {
+export default function ProjectsGrid({ activeFilter, onFilterChange }) {
   const { projects, loading, isFallback, fromCache, username } = useGithubProjects();
-  const [selectedLanguage, setSelectedLanguage] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
   // Extract unique languages
@@ -14,36 +14,60 @@ export default function ProjectsGrid() {
 
   // Filter projects
   const filteredProjects = projects.filter((repo) => {
-    const matchesLang = selectedLanguage === 'All' || repo.language === selectedLanguage;
+    const currentFilter = activeFilter || 'All';
+    
+    const matchesLang =
+      currentFilter === 'All' ||
+      (repo.language && repo.language.toLowerCase().includes(currentFilter.toLowerCase())) ||
+      (repo.topics && repo.topics.some((t) => t.toLowerCase().includes(currentFilter.toLowerCase()))) ||
+      repo.name.toLowerCase().includes(currentFilter.toLowerCase());
+
     const matchesSearch =
       repo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (repo.description && repo.description.toLowerCase().includes(searchQuery.toLowerCase()));
+
     return matchesLang && matchesSearch;
   });
 
   return (
     <section id="projects" className="section">
       <div className="container">
-        <div className="section-header">
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              color: 'var(--text-muted)',
-              fontSize: '0.85rem',
-              fontFamily: 'var(--font-mono)',
-              marginBottom: '0.5rem',
-            }}
-          >
-            <FolderGit2 size={16} aria-hidden="true" />
-            <span>04 / Progetti GitHub ({username})</span>
+        {/* Section Header with Quick Link to GitHub Profile */}
+        <div
+          className="section-header"
+          style={{
+            display: 'flex',
+            justify: 'space-between',
+            alignItems: 'flex-end',
+            flexWrap: 'wrap',
+            gap: '1rem',
+          }}
+        >
+          <div>
+            <div className="section-prefix">
+              <FolderGit2 size={16} aria-hidden="true" />
+              <span>02 / Progetti GitHub ({username})</span>
+            </div>
+
+            <h2 className="section-title">Showcase Repository</h2>
+            <p className="section-subtitle">
+              Repository pubblici estratti in tempo reale da GitHub {fromCache && '(dati in cache)'} {isFallback && '(modalità offline)'}
+            </p>
           </div>
 
-          <h2 className="section-title">Showcase Repository</h2>
-          <p className="section-subtitle">
-            Repository pubblici estratti in tempo reale da GitHub {fromCache && '(dati in cache)'} {isFallback && '(modalità offline)'}
-          </p>
+          {/* Moved GitHub Profile Quick Link Button */}
+          <a
+            href={`https://github.com/${username}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+            style={{ fontSize: '0.85rem' }}
+            aria-label={`Visualizza il profilo GitHub completo di ${username} (apre una nuova scheda)`}
+          >
+            <GithubIcon size={16} aria-hidden="true" />
+            <span>Profilo GitHub ({username})</span>
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
         </div>
 
         {/* Filter Bar */}
@@ -58,24 +82,31 @@ export default function ProjectsGrid() {
           }}
         >
           {/* Language filter pills */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }} role="tablist" aria-label="Filtra per linguaggio">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', alignItems: 'center' }} role="tablist" aria-label="Filtra per linguaggio o argomento">
             {languages.map((lang) => (
               <button
                 key={lang}
-                onClick={() => setSelectedLanguage(lang)}
-                className="badge"
-                style={{
-                  cursor: 'pointer',
-                  backgroundColor: selectedLanguage === lang ? 'var(--text-primary)' : 'var(--bg-secondary)',
-                  color: selectedLanguage === lang ? 'var(--text-inverse)' : 'var(--text-secondary)',
-                  borderColor: selectedLanguage === lang ? 'var(--text-primary)' : 'var(--border-subtle)',
-                }}
+                onClick={() => onFilterChange(lang)}
+                className={`badge ${activeFilter === lang ? 'badge-active' : ''}`}
+                style={{ cursor: 'pointer' }}
                 role="tab"
-                aria-selected={selectedLanguage === lang}
+                aria-selected={activeFilter === lang}
               >
                 {lang}
               </button>
             ))}
+
+            {activeFilter && activeFilter !== 'All' && (
+              <button
+                onClick={() => onFilterChange('All')}
+                className="btn-secondary"
+                style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', borderRadius: 'var(--radius-sm)' }}
+                aria-label="Resetta filtri progetti"
+              >
+                <RotateCcw size={12} aria-hidden="true" />
+                <span>Reset ({activeFilter})</span>
+              </button>
+            )}
           </div>
 
           {/* Minimal Search input */}
@@ -124,7 +155,7 @@ export default function ProjectsGrid() {
           </div>
         ) : filteredProjects.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-            Nessun repository trovato per i filtri selezionati.
+            Nessun repository trovato per il filtro "{activeFilter}".
           </div>
         ) : (
           <div
@@ -136,7 +167,7 @@ export default function ProjectsGrid() {
             }}
           >
             {filteredProjects.map((repo, idx) => (
-              <ProjectCard key={repo.id} repo={repo} isFeatured={idx === 0} />
+              <ProjectCard key={repo.id} repo={repo} isFeatured={idx === 0 && activeFilter === 'All'} />
             ))}
           </div>
         )}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Sun, Moon, Menu, X } from 'lucide-react';
+import { Terminal, Sun, Moon, FileText, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [theme, setTheme] = useState('dark');
@@ -27,10 +27,9 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { name: 'Chi Sono', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Percorso', href: '#timeline' },
+    { name: 'Skills & Tech', href: '#skills' },
     { name: 'Progetti', href: '#projects' },
+    { name: 'Pubblicazioni', href: '#publications' },
     { name: 'Contatti', href: '#contact' },
   ];
 
@@ -65,7 +64,7 @@ export default function Navbar() {
             fontSize: '1rem',
             fontFamily: 'var(--font-mono)',
           }}
-          aria-label="Michele Ventaggi - Torna all'inizio"
+          aria-label="Michele Ventaggi - Torna in cima alla pagina"
         >
           <Terminal size={20} color="var(--text-primary)" aria-hidden="true" />
           <span>michelevantaggi02</span>
@@ -76,7 +75,7 @@ export default function Navbar() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '1.75rem',
+            gap: '1.5rem',
           }}
           aria-label="Navigazione principale"
         >
@@ -104,39 +103,54 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Passa alla modalità chiara' : 'Passa alla modalità scura'}
-            className="btn-secondary"
-            style={{
-              padding: '0.5rem',
-              borderRadius: 'var(--radius-sm)',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {theme === 'dark' ? (
-              <Sun size={18} aria-hidden="true" />
-            ) : (
-              <Moon size={18} aria-hidden="true" />
-            )}
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            {/* Open CV Button */}
+            <a
+              href="/cv-michele-vantaggi.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+              style={{ padding: '0.4rem 0.75rem', fontSize: '0.8rem' }}
+              aria-label="Apri il Curriculum Vitae di Michele Ventaggi in formato PDF in una nuova scheda"
+            >
+              <FileText size={14} aria-hidden="true" />
+              <span>CV (PDF)</span>
+            </a>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
-            aria-expanded={isMobileMenuOpen}
-            className="btn-secondary mobile-toggle"
-            style={{
-              padding: '0.5rem',
-              display: 'none',
-            }}
-          >
-            {isMobileMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
-          </button>
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? 'Passa alla modalità chiara' : 'Passa alla modalità scura'}
+              className="btn-secondary"
+              style={{
+                padding: '0.4rem',
+                borderRadius: 'var(--radius-sm)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {theme === 'dark' ? (
+                <Sun size={18} aria-hidden="true" />
+              ) : (
+                <Moon size={18} aria-hidden="true" />
+              )}
+            </button>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
+              aria-expanded={isMobileMenuOpen}
+              className="btn-secondary mobile-toggle"
+              style={{
+                padding: '0.4rem',
+                display: 'none',
+              }}
+            >
+              {isMobileMenuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -166,6 +180,26 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="/cv-michele-vantaggi.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.5rem 0',
+                  color: 'var(--text-primary)',
+                  fontSize: '0.95rem',
+                  fontFamily: 'var(--font-mono)',
+                }}
+              >
+                <FileText size={16} aria-hidden="true" />
+                <span>Apri CV (PDF)</span>
+              </a>
+            </li>
           </ul>
         </div>
       )}
