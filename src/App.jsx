@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
 import Skills from './components/Skills';
-import Timeline from './components/Timeline';
 import ProjectsGrid from './components/Projects/ProjectsGrid';
+import Publications from './components/Publications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const handleSelectSkill = (skillName) => {
+    setActiveFilter(skillName);
+  };
+
+  const handleFilterChange = (filterName) => {
+    setActiveFilter(filterName);
+  };
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <a href="#main-content" className="skip-link">
@@ -19,10 +28,9 @@ export default function App() {
 
       <main id="main-content" style={{ flex: 1 }}>
         <Hero />
-        <About />
-        <Skills />
-        <Timeline />
-        <ProjectsGrid />
+        <Skills onSelectSkill={handleSelectSkill} />
+        <ProjectsGrid activeFilter={activeFilter} onFilterChange={handleFilterChange} />
+        <Publications />
         <Contact />
       </main>
 
