@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, Sun, Moon, FileText, Menu, X } from 'lucide-react';
+import { Terminal, Sun, Moon, Notes, Menu, Close } from 'pixelarticons/react';
 
 export default function Navbar() {
   const [theme, setTheme] = useState('dark');
@@ -56,7 +56,7 @@ export default function Navbar() {
         top: 0,
         zIndex: 100,
         backgroundColor: 'var(--bg-primary)',
-        borderBottom: '1px solid var(--border-subtle)',
+        borderBottom: '2px solid var(--border-subtle)',
         transition: 'background-color var(--transition-normal), border-color var(--transition-normal)',
       }}
     >
@@ -66,7 +66,7 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '4rem',
+          height: '4.25rem',
         }}
       >
         {/* Brand / Logo */}
@@ -76,13 +76,15 @@ export default function Navbar() {
             display: 'flex',
             alignItems: 'center',
             gap: '0.625rem',
-            fontWeight: 600,
-            fontSize: '1rem',
+            fontWeight: 700,
+            fontSize: '1.1rem',
             fontFamily: 'var(--font-mono)',
+            color: 'var(--text-primary)',
+            textDecoration: 'none',
           }}
-          aria-label="Michele Ventaggi - Torna in cima alla pagina"
+          aria-label="Michele Vantaggi - Torna in cima alla pagina"
         >
-          <Terminal size={20} color="var(--text-primary)" aria-hidden="true" />
+          <Terminal style={{ width: '22px', height: '22px', color: 'var(--accent-teal-light)' }} aria-hidden="true" />
           <span>michelevantaggi02</span>
         </a>
 
@@ -100,8 +102,9 @@ export default function Navbar() {
               display: 'flex',
               gap: '1.5rem',
               listStyle: 'none',
-              fontSize: '0.875rem',
-              fontWeight: 500,
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              fontFamily: 'var(--font-sans)',
             }}
             className="desktop-nav"
           >
@@ -109,7 +112,7 @@ export default function Navbar() {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  style={{ color: 'var(--text-secondary)' }}
+                  style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
@@ -126,10 +129,10 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary desktop-nav"
-              style={{ padding: '0.4rem 0.75rem', fontSize: '0.8rem', minHeight: '36px' }}
-              aria-label="Apri il Curriculum Vitae di Michele Ventaggi in formato PDF in una nuova scheda"
+              style={{ padding: '0.4rem 0.75rem', fontSize: '0.85rem', minHeight: '38px' }}
+              aria-label="Apri il Curriculum Vitae di Michele Vantaggi in formato PDF in una nuova scheda"
             >
-              <FileText size={14} aria-hidden="true" />
+              <Notes style={{ width: '16px', height: '16px' }} aria-hidden="true" />
               <span>CV (PDF)</span>
             </a>
 
@@ -140,7 +143,6 @@ export default function Navbar() {
               className="btn-secondary"
               style={{
                 padding: '0.4rem',
-                borderRadius: 'var(--radius-sm)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -149,9 +151,9 @@ export default function Navbar() {
               }}
             >
               {theme === 'dark' ? (
-                <Sun size={18} aria-hidden="true" />
+                <Sun style={{ width: '20px', height: '20px', color: '#ffcc00' }} aria-hidden="true" />
               ) : (
-                <Moon size={18} aria-hidden="true" />
+                <Moon style={{ width: '20px', height: '20px' }} aria-hidden="true" />
               )}
             </button>
 
@@ -168,7 +170,11 @@ export default function Navbar() {
                 minWidth: '44px',
               }}
             >
-              {isMobileMenuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+              {isMobileMenuOpen ? (
+                <Close style={{ width: '20px', height: '20px' }} aria-hidden="true" />
+              ) : (
+                <Menu style={{ width: '20px', height: '20px' }} aria-hidden="true" />
+              )}
             </button>
           </div>
         </nav>
@@ -179,7 +185,7 @@ export default function Navbar() {
         <div
           style={{
             padding: '1.25rem var(--space-md)',
-            borderTop: '1px solid var(--border-subtle)',
+            borderTop: '2px solid var(--border-subtle)',
             backgroundColor: 'var(--bg-secondary)',
           }}
         >
@@ -193,15 +199,16 @@ export default function Navbar() {
                     display: 'block',
                     padding: '0.625rem 0',
                     color: 'var(--text-primary)',
-                    fontSize: '1rem',
-                    fontWeight: 500,
+                    fontSize: '1.05rem',
+                    fontWeight: 600,
+                    textDecoration: 'none',
                   }}
                 >
                   {link.name}
                 </a>
               </li>
             ))}
-            <li style={{ paddingTop: '0.5rem', borderTop: '1px solid var(--border-subtle)' }}>
+            <li style={{ paddingTop: '0.5rem', borderTop: '2px solid var(--border-subtle)' }}>
               <a
                 href="/cv-michele-vantaggi.pdf"
                 target="_blank"
@@ -215,7 +222,7 @@ export default function Navbar() {
                   fontSize: '0.95rem',
                 }}
               >
-                <FileText size={16} aria-hidden="true" />
+                <Notes style={{ width: '18px', height: '18px' }} aria-hidden="true" />
                 <span>Apri CV (PDF)</span>
               </a>
             </li>

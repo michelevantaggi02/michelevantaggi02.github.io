@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, ArrowUpRight, Copy, Check } from 'lucide-react';
+import { Mail, CornerUpRight, Copy, Check } from 'pixelarticons/react';
 import LinkedinIcon from './icons/LinkedinIcon';
 
 export default function Contact() {
@@ -18,7 +18,7 @@ export default function Contact() {
       <div className="container">
         <div className="section-header">
           <div className="section-prefix">
-            <Mail size={16} aria-hidden="true" />
+            <Mail style={{ width: '16px', height: '16px' }} aria-hidden="true" />
             <span>04 / Contatti</span>
           </div>
 
@@ -41,11 +41,11 @@ export default function Contact() {
           <article className="card-minimal" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <div className="card-body" style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
-                <Mail size={20} aria-hidden="true" />
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 600 }}>Email Diretta</h3>
+                <Mail style={{ width: '22px', height: '22px', color: 'var(--accent-teal-light)' }} aria-hidden="true" />
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, fontFamily: 'var(--font-sans)' }}>Email Diretta</h3>
               </div>
 
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.9rem', fontFamily: 'var(--font-sans)', color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.6 }}>
                 Inviami direttamente un messaggio alla mia casella di posta elettronica.
               </p>
 
@@ -67,7 +67,7 @@ export default function Contact() {
                   aria-label={`Invia una mail a ${emailAddress}`}
                 >
                   <span>Scrivi via Mail</span>
-                  <ArrowUpRight size={16} aria-hidden="true" />
+                  <CornerUpRight style={{ width: '16px', height: '16px' }} aria-hidden="true" />
                 </a>
 
                 <button
@@ -76,7 +76,7 @@ export default function Contact() {
                   aria-label="Copia indirizzo email negli appunti"
                   title="Copia email"
                 >
-                  {copied ? <Check size={16} color="var(--accent-teal-light)" aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+                  {copied ? <Check style={{ width: '16px', height: '16px', color: 'var(--accent-teal-light)' }} aria-hidden="true" /> : <Copy style={{ width: '16px', height: '16px' }} aria-hidden="true" />}
                   <span>{copied ? 'Copiato!' : 'Copia'}</span>
                 </button>
               </div>
@@ -88,10 +88,10 @@ export default function Contact() {
             <div className="card-body" style={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
                 <LinkedinIcon size={20} aria-hidden="true" />
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 600 }}>LinkedIn</h3>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, fontFamily: 'var(--font-sans)' }}>LinkedIn</h3>
               </div>
 
-              <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.9rem', fontFamily: 'var(--font-sans)', color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.6 }}>
                 Consulta il mio profilo per dettagli sulla carriera e sulla formazione accademica.
               </p>
 
@@ -114,7 +114,7 @@ export default function Contact() {
                 aria-label="Profilo LinkedIn di Michele Vantaggi (apre in una nuova scheda)"
               >
                 <span>Profilo LinkedIn</span>
-                <ArrowUpRight size={16} aria-hidden="true" />
+                <CornerUpRight style={{ width: '16px', height: '16px' }} aria-hidden="true" />
               </a>
             </div>
           </article>

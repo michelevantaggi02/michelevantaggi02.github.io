@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { FolderGit2, Search, RotateCcw, ArrowUpRight } from 'lucide-react';
+import { Folder, Search, Reload, Github, CornerUpRight } from 'pixelarticons/react';
 import { useGithubProjects } from '../../services/useGithubProjects';
-import GithubIcon from '../icons/GithubIcon';
 import ProjectCard from './ProjectCard';
 import ProjectSkeleton from './ProjectSkeleton';
 
@@ -45,7 +44,7 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
         >
           <div>
             <div className="section-prefix">
-              <FolderGit2 size={16} aria-hidden="true" />
+              <Folder style={{ width: '16px', height: '16px' }} aria-hidden="true" />
               <span>02 / Progetti GitHub ({username})</span>
             </div>
 
@@ -64,9 +63,9 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
             style={{ fontSize: '0.85rem' }}
             aria-label={`Visualizza il profilo GitHub completo di ${username} (apre una nuova scheda)`}
           >
-            <GithubIcon size={16} aria-hidden="true" />
+            <Github style={{ width: '16px', height: '16px' }} aria-hidden="true" />
             <span>Profilo GitHub ({username})</span>
-            <ArrowUpRight size={14} aria-hidden="true" />
+            <CornerUpRight style={{ width: '14px', height: '14px' }} aria-hidden="true" />
           </a>
         </div>
 
@@ -103,7 +102,7 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
                 style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', borderRadius: 'var(--radius-sm)', minHeight: '36px' }}
                 aria-label="Resetta filtri progetti"
               >
-                <RotateCcw size={12} aria-hidden="true" />
+                <Reload style={{ width: '13px', height: '13px' }} aria-hidden="true" />
                 <span>Reset ({activeFilter})</span>
               </button>
             )}
@@ -112,13 +111,14 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
           {/* Search input with responsive mobile class */}
           <div className="search-container-mobile" style={{ position: 'relative', width: '100%', maxWidth: '240px' }}>
             <Search
-              size={14}
               style={{
                 position: 'absolute',
                 left: '0.75rem',
                 top: '50%',
                 transform: 'translateY(-50%)',
                 color: 'var(--text-muted)',
+                width: '16px',
+                height: '16px',
               }}
               aria-hidden="true"
             />
@@ -138,8 +138,8 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
                 fontSize: '0.85rem',
                 fontFamily: 'var(--font-mono)',
                 backgroundColor: 'var(--bg-card)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-sm)',
+                border: '2px solid var(--border-subtle)',
+                borderRadius: '0px',
                 color: 'var(--text-primary)',
                 minHeight: '44px',
               }}

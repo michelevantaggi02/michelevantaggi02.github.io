@@ -1,38 +1,37 @@
 import React from 'react';
-import { Eye, Code, Smartphone, Terminal, ArrowDown } from 'lucide-react';
+import { Cpu, Code, Smartphone, Server } from 'pixelarticons/react';
 
 export default function Skills({ onSelectSkill }) {
   const skillCategories = [
     {
       title: 'Computer Vision & AI',
-      icon: Eye,
-      skills: ['OpenCV', 'YOLO', 'FastReID', 'DeepSort', 'Tesseract'],
+      icon: <Cpu style={{ width: '22px', height: '22px', color: 'var(--accent-teal-light)' }} aria-hidden="true" />,
+      skills: ['OpenCV', 'YOLO', 'FastReID', 'DeepSort', 'Tesseract OCR', 'Machine Learning', 'C#'],
     },
     {
-      title: 'Linguaggi Principali & Sistemi',
-      icon: Code,
-      skills: ['Java', 'C#', 'Dart', 'Rust', 'Python', 'C / C++', 'Lua', 'SQL'],
+      title: 'Linguaggi & Sistemi',
+      icon: <Code style={{ width: '22px', height: '22px', color: 'var(--accent-teal-light)' }} aria-hidden="true" />,
+      skills: ['C++', 'Python', 'Dart', 'Java', 'Rust', 'JavaScript', 'SQL / PostgreSQL'],
     },
     {
-      title: 'Mobile & Web Development',
-      icon: Smartphone,
-      skills: ['Flutter (iOS/Android)', 'React', 'PHP', 'JSP', 'HTML5 / CSS3'],
+      title: 'Sviluppo Mobile',
+      icon: <Smartphone style={{ width: '22px', height: '22px', color: 'var(--accent-teal-light)' }} aria-hidden="true" />,
+      skills: ['Flutter', 'Android Native', 'REST API', 'JSON / Serialization', 'UI / UX Responsive'],
     },
     {
-      title: 'Server, Database & Tools',
-      icon: Terminal,
-      skills: ['Linux', 'Git / GitHub', 'MySQL', 'Tomcat', 'Certbot / TLS', 'Docker'],
+      title: 'Server, Tools & Cloud',
+      icon: <Server style={{ width: '22px', height: '22px', color: 'var(--accent-teal-light)' }} aria-hidden="true" />,
+      skills: ['Git / GitHub', 'Docker', 'Linux / Bash', 'Vite / React', 'CI / CD Actions'],
     },
   ];
 
-  const handleSkillClick = (skillName) => {
-    const cleanName = skillName.split(' ')[0];
+  const handleSkillClick = (skill) => {
     if (onSelectSkill) {
-      onSelectSkill(cleanName);
-    }
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+      onSelectSkill(skill);
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -41,13 +40,13 @@ export default function Skills({ onSelectSkill }) {
       <div className="container">
         <div className="section-header">
           <div className="section-prefix">
-            <Code size={16} aria-hidden="true" />
+            <Cpu style={{ width: '16px', height: '16px' }} aria-hidden="true" />
             <span>01 / Competenze Tecniche</span>
           </div>
 
-          <h2 className="section-title">Skills &amp; Tecnologie</h2>
+          <h2 className="section-title">Tech Stack &amp; Skill Set</h2>
           <p className="section-subtitle">
-            Seleziona una tecnologia per filtrare istantaneamente i relativi progetti pubblici su GitHub.
+            Competenze pratiche acquisite durante il percorso universitario LM-32 ed i progetti di sviluppo.
           </p>
         </div>
 
@@ -59,44 +58,35 @@ export default function Skills({ onSelectSkill }) {
             marginTop: '2rem',
           }}
         >
-          {skillCategories.map((category) => {
-            const IconComponent = category.icon;
-            return (
-              <div key={category.title} className="card-minimal">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '1.25rem' }}>
-                  <IconComponent size={20} color="var(--text-primary)" aria-hidden="true" />
-                  <h3 style={{ fontSize: '1rem', fontWeight: 600 }}>{category.title}</h3>
-                </div>
-
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {category.skills.map((skill) => (
-                    <button
-                      key={skill}
-                      onClick={() => handleSkillClick(skill)}
-                      className="badge"
-                      style={{
-                        cursor: 'pointer',
-                        transition: 'all var(--transition-fast)',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = 'var(--accent-teal-light)';
-                        e.currentTarget.style.color = 'var(--accent-teal-light)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = 'var(--border-subtle)';
-                        e.currentTarget.style.color = 'var(--text-secondary)';
-                      }}
-                      aria-label={`Filtra i progetti per ${skill} e scorri alla sezione progetti`}
-                      title={`Filtra progetti per ${skill}`}
-                    >
-                      <span>{skill}</span>
-                      <ArrowDown size={12} aria-hidden="true" style={{ opacity: 0.6 }} />
-                    </button>
-                  ))}
-                </div>
+          {skillCategories.map((cat, idx) => (
+            <article key={idx} className="card-minimal">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                {cat.icon}
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>
+                  {cat.title}
+                </h3>
               </div>
-            );
-          })}
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {cat.skills.map((skill, sIdx) => (
+                  <button
+                    key={sIdx}
+                    onClick={() => handleSkillClick(skill)}
+                    className="badge badge-teal"
+                    style={{
+                      cursor: 'pointer',
+                      fontSize: '0.75rem',
+                      fontFamily: 'var(--font-mono)',
+                    }}
+                    title={`Filtra progetti con ${skill}`}
+                    aria-label={`Filtra i progetti GitHub relativi a ${skill}`}
+                  >
+                    {skill}
+                  </button>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

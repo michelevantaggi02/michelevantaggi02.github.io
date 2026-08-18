@@ -1,6 +1,5 @@
 import React from 'react';
-import { Star, GitFork, ExternalLink, Globe } from 'lucide-react';
-import GithubIcon from '../icons/GithubIcon';
+import { Star, GitCommit, ExternalLink, Globe, Github } from 'pixelarticons/react';
 
 export default function ProjectCard({ repo, isFeatured = false }) {
   const handleCardClick = (e) => {
@@ -46,7 +45,7 @@ export default function ProjectCard({ repo, isFeatured = false }) {
           <h3
             style={{
               fontSize: isFeatured ? '1.25rem' : '1.1rem',
-              fontWeight: 600,
+              fontWeight: 700,
               fontFamily: 'var(--font-mono)',
               color: 'var(--text-primary)',
             }}
@@ -84,7 +83,8 @@ export default function ProjectCard({ repo, isFeatured = false }) {
         {/* Row 3: Description */}
         <p
           style={{
-            fontSize: '0.875rem',
+            fontSize: '0.9rem',
+            fontFamily: 'var(--font-sans)',
             lineHeight: 1.6,
             color: 'var(--text-secondary)',
             marginBottom: '1.25rem',
@@ -98,10 +98,10 @@ export default function ProjectCard({ repo, isFeatured = false }) {
       <div className="card-footer">
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', whiteSpace: 'nowrap' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
-            <Star size={14} aria-hidden="true" /> {repo.stargazers_count}
+            <Star style={{ width: '15px', height: '15px', color: '#ffcc00' }} aria-hidden="true" /> {repo.stargazers_count}
           </span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
-            <GitFork size={14} aria-hidden="true" /> {repo.forks_count}
+            <GitCommit style={{ width: '15px', height: '15px' }} aria-hidden="true" /> {repo.forks_count}
           </span>
         </div>
 
@@ -116,7 +116,7 @@ export default function ProjectCard({ repo, isFeatured = false }) {
               aria-label={`Vedi sito demo di ${repo.name} (apre una nuova scheda)`}
               onClick={(e) => e.stopPropagation()}
             >
-              <Globe size={13} aria-hidden="true" />
+              <Globe style={{ width: '14px', height: '14px' }} aria-hidden="true" />
               <span>Demo</span>
             </a>
           )}
@@ -128,9 +128,9 @@ export default function ProjectCard({ repo, isFeatured = false }) {
             aria-label={`Vedi codice del repository ${repo.name} su GitHub (apre una nuova scheda)`}
             onClick={(e) => e.stopPropagation()}
           >
-            <GithubIcon size={14} aria-hidden="true" />
+            <Github style={{ width: '16px', height: '16px' }} aria-hidden="true" />
             <span>Codice</span>
-            <ExternalLink size={12} aria-hidden="true" />
+            <ExternalLink style={{ width: '12px', height: '12px' }} aria-hidden="true" />
           </a>
         </div>
       </div>

@@ -1,34 +1,38 @@
 :root {
-  /* Color Palette - Minimalist Dark Theme (WCAG 2.1 AAA Compliant) */
-  --bg-primary: #09090b;       /* Zinc 950 Deep Black */
-  --bg-secondary: #121215;     /* Darker Charcoal */
-  --bg-card: #18181b;          /* Zinc 900 Solid Charcoal */
-  --bg-card-hover: #202024;    /* Zinc 850 Solid */
+  /* Color Palette - Pixel Art 8-Bit Dark Arcade Theme */
+  --bg-primary: #0a0a0c;       /* Retro CRT Dark Black */
+  --bg-secondary: #121216;     /* Dark Charcoal Arcade */
+  --bg-card: #18181f;          /* 8-Bit Solid Charcoal Card */
+  --bg-card-hover: #22222c;    /* Card Hover */
   
-  --border-subtle: #27272a;    /* Zinc 800 (1px solid) */
-  --border-hover: #3f3f46;     /* Zinc 700 */
-  --border-focus: #fafafa;     /* Stark White */
+  --border-subtle: #333340;    /* Crisp 8-Bit Border */
+  --border-hover: #555566;     /* Highlight Border */
+  --border-focus: #00f5d4;     /* Neon Cyan Focus */
 
-  --text-primary: #fafafa;     /* Zinc 50 Stark White (19.3:1 Contrast AAA) */
-  --text-secondary: #a1a1aa;   /* Zinc 400 Muted Gray (7.8:1 Contrast AAA) */
-  --text-muted: #94a3b8;       /* Slate 400 (6.8:1 Contrast AAA on #18181b) */
-  --text-inverse: #09090b;
+  --text-primary: #f8fafc;     /* Slate 50 Crisp White */
+  --text-secondary: #e2e8f0;   /* Slate 200 Bright Silver (AAA) */
+  --text-muted: #cbd5e1;       /* Slate 300 High Contrast Silver (10.5:1 AAA on #18181f) */
+  --text-inverse: #0a0a0c;
 
-  /* CV Accent Color - Deep Teal / Petrolio */
-  --accent-teal: #0d9488;      /* Teal 600 (5.4:1 Contrast on White Button) */
-  --accent-teal-light: #2dd4bf;/* Teal 400 (10.5:1 Contrast AAA on Dark) */
-  --accent-teal-subtle: rgba(15, 118, 110, 0.15); /* Flat subtle background tint */
-  --accent-emerald: #10b981;   /* Status green */
+  /* Pixel Accent Colors - 8-Bit Cyber Teal & Emerald */
+  --accent-teal: #0d9488;      /* Deep Teal */
+  --accent-teal-light: #00f5d4;/* Neon Pixel Cyber Teal */
+  --accent-teal-subtle: rgba(0, 245, 212, 0.12); /* Retro glow tint */
+  --accent-emerald: #00e676;   /* Retro Status Green */
 
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Pixel 8-Bit Box Shadow */
+  --pixel-shadow: 4px 4px 0px 0px #000000;
+  --pixel-shadow-sm: 2px 2px 0px 0px #000000;
 
-  /* Layout & Geometry */
+  /* High-Legibility Pixel Typography */
+  --font-sans: 'DotGothic16', sans-serif;  /* 16x16 Bitmap Matrix Body Font */
+  --font-mono: 'Silkscreen', monospace;     /* 8-Bit Arcade Headings & Buttons */
+
+  /* Layout & Geometry (Crisp 8-Bit Angles) */
   --max-width: 1100px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -38,27 +42,29 @@
   --space-xl: 3.5rem;
 
   /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 100ms step-end;
+  --transition-normal: 150ms step-end;
 }
 
-/* Light Theme Variant (Soft Anti-Glare & WCAG 2.1 AAA Compliant) */
+/* Light Theme Variant (Retro Game Boy Pocket & Soft CRT) */
 html.light {
-  --bg-primary: #fafafa;       /* Soft Zinc 50 (Reduces glare) */
-  --bg-secondary: #f4f4f5;     /* Zinc 100 */
-  --bg-card: #ffffff;          /* Pure White Card (Clean 3D contrast) */
-  --bg-card-hover: #f4f4f5;
+  --bg-primary: #e8e8ea;       /* Game Boy Pocket Soft Gray */
+  --bg-secondary: #dadadc;     /* Retro Neutral */
+  --bg-card: #ffffff;          /* Pure White Solid Pixel Card */
+  --bg-card-hover: #f0f0f2;
 
-  --border-subtle: #e4e4e7;     /* Zinc 200 */
-  --border-hover: #d4d4d8;      /* Zinc 300 */
-  --border-focus: #09090b;
+  --border-subtle: #111115;     /* Hard Pixel Black Borders */
+  --border-hover: #333340;
+  --border-focus: #008080;
 
-  --text-primary: #09090b;     /* Zinc 950 (19.3:1 Contrast AAA) */
-  --text-secondary: #3f3f46;   /* Zinc 700 (11.5:1 Contrast AAA) */
-  --text-muted: #475569;       /* Slate 600 (7.5:1 Contrast AAA on Light) */
+  --text-primary: #0f172a;     /* Slate 900 Deep Pixel Black */
+  --text-secondary: #1e293b;   /* Slate 800 (AAA) */
+  --text-muted: #334155;       /* Slate 700 High Contrast (11.2:1 AAA on #ffffff) */
   --text-inverse: #ffffff;
 
-  --accent-teal: #0d6b63;      /* CV Deep Teal (5.8:1 Contrast AAA) */
-  --accent-teal-light: #0f766e;/* Teal 700 (5.2:1 Contrast AAA) */
-  --accent-teal-subtle: rgba(13, 107, 99, 0.08);
+  --accent-teal: #0d6b63;      /* Deep Retro Teal */
+  --accent-teal-light: #0f766e;/* Retro Dark Teal */
+  --accent-teal-subtle: rgba(13, 107, 99, 0.12);
+  --pixel-shadow: 4px 4px 0px 0px #111115;
+  --pixel-shadow-sm: 2px 2px 0px 0px #111115;
 }
