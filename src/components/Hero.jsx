@@ -21,7 +21,7 @@ export default function Hero() {
             Michele Vantaggi
           </h1>
 
-          {/* Subtitle H2 - Silkscreen 8-Bit Pixel Typography */}
+          {/* Subtitle H2 - Cyber Cyan Accent */}
           <h2
             style={{
               fontSize: 'clamp(1.1rem, 2.2vw, 1.45rem)',
@@ -50,7 +50,7 @@ export default function Hero() {
             Studente magistrale in Ingegneria Informatica e Robotica (LM-32). Specializzato in sistemi di Computer Vision (YOLO, OpenCV, FastReID, C#) e sviluppo Mobile (Flutter/Dart). Desidero applicare le mie competenze in contesti aziendali dinamici e sfidanti.
           </p>
 
-          {/* Action Buttons with 8-Bit Pixel Icons */}
+          {/* Action Buttons (Option A Hierarchy: Primary CV, Accent Projects, Secondary Contact) */}
           <div className="hero-actions-mobile" style={{ display: 'flex', gap: '0.875rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <a
               href="/cv-michele-vantaggi.pdf"

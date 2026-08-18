@@ -75,7 +75,7 @@ export default function Skills({ onSelectSkill }) {
                     className="badge badge-teal"
                     style={{
                       cursor: 'pointer',
-                      fontSize: '0.75rem',
+                      fontSize: '0.8rem',
                       fontFamily: 'var(--font-mono)',
                     }}
                     title={`Filtra progetti con ${skill}`}

@@ -54,7 +54,7 @@ export default function ProjectCard({ repo, isFeatured = false }) {
           </h3>
 
           {isFeatured && (
-            <span className="badge badge-active" style={{ fontSize: '0.7rem' }}>
+            <span className="badge badge-active" style={{ fontSize: '0.75rem' }}>
               Featured
             </span>
           )}
@@ -98,10 +98,10 @@ export default function ProjectCard({ repo, isFeatured = false }) {
       <div className="card-footer">
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', whiteSpace: 'nowrap' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
-            <Star style={{ width: '15px', height: '15px', color: '#ffcc00' }} aria-hidden="true" /> {repo.stargazers_count}
+            <Star style={{ width: '15px', height: '15px', color: 'var(--accent-teal-light)' }} aria-hidden="true" /> {repo.stargazers_count}
           </span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
-            <GitCommit style={{ width: '15px', height: '15px' }} aria-hidden="true" /> {repo.forks_count}
+            <GitCommit style={{ width: '15px', height: '15px', color: 'var(--accent-teal-light)' }} aria-hidden="true" /> {repo.forks_count}
           </span>
         </div>
 

@@ -1,5 +1,5 @@
 :root {
-  /* Color Palette - Pixel Art 8-Bit Dark Arcade Theme */
+  /* Color Palette - Minimalist 8-Bit Dark Arcade Theme */
   --bg-primary: #0a0a0c;       /* Retro CRT Dark Black */
   --bg-secondary: #121216;     /* Dark Charcoal Arcade */
   --bg-card: #18181f;          /* 8-Bit Solid Charcoal Card */
@@ -14,11 +14,10 @@
   --text-muted: #cbd5e1;       /* Slate 300 High Contrast Silver (10.5:1 AAA on #18181f) */
   --text-inverse: #0a0a0c;
 
-  /* Pixel Accent Colors - 8-Bit Cyber Teal & Emerald */
+  /* Primary Identity Accent: Deep Teal / Cyber Cyan */
   --accent-teal: #0d9488;      /* Deep Teal */
   --accent-teal-light: #00f5d4;/* Neon Pixel Cyber Teal */
   --accent-teal-subtle: rgba(0, 245, 212, 0.12); /* Retro glow tint */
-  --accent-emerald: #00e676;   /* Retro Status Green */
 
   /* Pixel 8-Bit Box Shadow */
   --pixel-shadow: 4px 4px 0px 0px #000000;
@@ -65,6 +64,7 @@ html.light {
   --accent-teal: #0d6b63;      /* Deep Retro Teal */
   --accent-teal-light: #0f766e;/* Retro Dark Teal */
   --accent-teal-subtle: rgba(13, 107, 99, 0.12);
+
   --pixel-shadow: 4px 4px 0px 0px #111115;
   --pixel-shadow-sm: 2px 2px 0px 0px #111115;
 }
