@@ -24,7 +24,7 @@ export default function ProjectCard({ repo, isFeatured = false }) {
 
   return (
     <article
-      className="card-minimal card-clickable"
+      className={`card-minimal card-clickable ${isFeatured ? 'bento-featured' : ''}`}
       onClick={handleCardClick}
       style={{
         gridColumn: isFeatured ? 'span 2' : 'span 1',
@@ -112,7 +112,7 @@ export default function ProjectCard({ repo, isFeatured = false }) {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
-              style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem' }}
+              style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', minHeight: '36px' }}
               aria-label={`Vedi sito demo di ${repo.name} (apre una nuova scheda)`}
               onClick={(e) => e.stopPropagation()}
             >

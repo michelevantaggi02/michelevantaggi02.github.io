@@ -6,14 +6,6 @@ export default function Hero() {
     <section className="section" style={{ paddingTop: '5rem', paddingBottom: '4.5rem' }}>
       <div className="container">
         <div style={{ maxWidth: '800px' }}>
-          {/* Single Clean Status Badge with Deep Teal Accent */}
-          <div style={{ marginBottom: '1.5rem' }}>
-            <div className="status-badge">
-              <span className="status-dot" aria-hidden="true"></span>
-              <span>Ingegneria Informatica &amp; Robotica (LM-32)</span>
-            </div>
-          </div>
-
           {/* Main Title H1 */}
           <h1
             style={{
@@ -52,12 +44,11 @@ export default function Hero() {
               maxWidth: '660px',
             }}
           >
-            Specializzato in sistemi di Computer Vision (YOLO, OpenCV, FastReID, C#) e sviluppo Mobile (Flutter/Dart).
-            Desidero applicare le mie competenze in contesti aziendali dinamici e sfidanti.
+            Studente magistrale in Ingegneria Informatica e Robotica (LM-32). Specializzato in sistemi di Computer Vision (YOLO, OpenCV, FastReID, C#) e sviluppo Mobile (Flutter/Dart). Desidero applicare le mie competenze in contesti aziendali dinamici e sfidanti.
           </p>
 
           {/* Action Buttons (Option A Hierarchy: Primary CV, Accent Projects, Secondary Contact) */}
-          <div style={{ display: 'flex', gap: '0.875rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="hero-actions-mobile" style={{ display: 'flex', gap: '0.875rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <a
               href="/cv-michele-vantaggi.pdf"
               target="_blank"

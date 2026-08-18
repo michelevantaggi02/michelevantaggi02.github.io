@@ -55,7 +55,7 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
             </p>
           </div>
 
-          {/* Moved GitHub Profile Quick Link Button */}
+          {/* GitHub Profile Quick Link Button */}
           <a
             href={`https://github.com/${username}`}
             target="_blank"
@@ -88,7 +88,7 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
                 key={lang}
                 onClick={() => onFilterChange(lang)}
                 className={`badge ${activeFilter === lang ? 'badge-active' : ''}`}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', minHeight: '36px' }}
                 role="tab"
                 aria-selected={activeFilter === lang}
               >
@@ -100,7 +100,7 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
               <button
                 onClick={() => onFilterChange('All')}
                 className="btn-secondary"
-                style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', borderRadius: 'var(--radius-sm)' }}
+                style={{ padding: '0.25rem 0.5rem', fontSize: '0.75rem', borderRadius: 'var(--radius-sm)', minHeight: '36px' }}
                 aria-label="Resetta filtri progetti"
               >
                 <RotateCcw size={12} aria-hidden="true" />
@@ -109,8 +109,8 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
             )}
           </div>
 
-          {/* Minimal Search input */}
-          <div style={{ position: 'relative', width: '100%', maxWidth: '240px' }}>
+          {/* Search input with responsive mobile class */}
+          <div className="search-container-mobile" style={{ position: 'relative', width: '100%', maxWidth: '240px' }}>
             <Search
               size={14}
               style={{
@@ -133,14 +133,15 @@ export default function ProjectsGrid({ activeFilter, onFilterChange }) {
                 width: '100%',
                 paddingLeft: '2.25rem',
                 paddingRight: '0.75rem',
-                paddingTop: '0.4rem',
-                paddingBottom: '0.4rem',
+                paddingTop: '0.5rem',
+                paddingBottom: '0.5rem',
                 fontSize: '0.85rem',
                 fontFamily: 'var(--font-mono)',
                 backgroundColor: 'var(--bg-card)',
                 border: '1px solid var(--border-subtle)',
                 borderRadius: 'var(--radius-sm)',
                 color: 'var(--text-primary)',
+                minHeight: '44px',
               }}
             />
           </div>

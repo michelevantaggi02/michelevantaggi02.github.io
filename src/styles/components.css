@@ -115,6 +115,7 @@
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
   text-decoration: none;
+  min-height: 44px; /* WCAG 2.1 Touch Target Standard */
 }
 
 .btn-primary {
@@ -219,7 +220,10 @@
   }
 }
 
-/* Responsive Media Queries */
+/* ==========================================================================
+   ISOLATED MOBILE RESPONSIVE MEDIA QUERIES (DESKTOP > 768px IS 100% UNTOUCHED)
+   ========================================================================== */
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none !important;
@@ -229,6 +233,11 @@
     display: inline-flex !important;
   }
 
+  /* Prevent background scroll leakage on mobile drawer open */
+  body.mobile-menu-open {
+    overflow: hidden !important;
+  }
+
   .section {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -236,5 +245,43 @@
 
   .section-title {
     font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Bento Grid Fix: Featured Card returns to 1 column on single-column mobile view */
+  .bento-featured {
+    grid-column: span 1 !important;
+  }
+
+  /* Full-width responsive search bar on mobile */
+  .search-container-mobile {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Full-width touch-friendly hero action buttons for thumb accessibility */
+  .hero-actions-mobile {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .hero-actions-mobile .btn {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 400px) {
+  /* Stack email card buttons on ultra-narrow phones */
+  .contact-btn-group-mobile {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .contact-btn-group-mobile .btn {
+    width: 100% !important;
   }
 }

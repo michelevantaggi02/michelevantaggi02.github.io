@@ -59,7 +59,7 @@ export default function Contact() {
 
             {/* Rigid Bottom Footer Buttons */}
             <div className="card-footer" style={{ borderTop: 'none', paddingTop: 0, marginTop: 'auto' }}>
-              <div style={{ display: 'flex', gap: '0.5rem', width: '100%', flexWrap: 'wrap' }}>
+              <div className="contact-btn-group-mobile" style={{ display: 'flex', gap: '0.5rem', width: '100%', flexWrap: 'wrap' }}>
                 <a
                   href={`mailto:${emailAddress}`}
                   className="btn btn-primary"

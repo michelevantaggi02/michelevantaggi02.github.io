@@ -15,6 +15,18 @@ export default function Navbar() {
     }
   }, []);
 
+  // Lock background body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('mobile-menu-open');
+    } else {
+      document.body.classList.remove('mobile-menu-open');
+    }
+    return () => {
+      document.body.classList.remove('mobile-menu-open');
+    };
+  }, [isMobileMenuOpen]);
+
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
@@ -24,6 +36,10 @@ export default function Navbar() {
     } else {
       document.documentElement.classList.remove('light');
     }
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   const navLinks = [
@@ -109,8 +125,8 @@ export default function Navbar() {
               href="/cv-michele-vantaggi.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary"
-              style={{ padding: '0.4rem 0.75rem', fontSize: '0.8rem' }}
+              className="btn btn-secondary desktop-nav"
+              style={{ padding: '0.4rem 0.75rem', fontSize: '0.8rem', minHeight: '36px' }}
               aria-label="Apri il Curriculum Vitae di Michele Ventaggi in formato PDF in una nuova scheda"
             >
               <FileText size={14} aria-hidden="true" />
@@ -128,6 +144,8 @@ export default function Navbar() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                minHeight: '44px',
+                minWidth: '44px',
               }}
             >
               {theme === 'dark' ? (
@@ -146,6 +164,8 @@ export default function Navbar() {
               style={{
                 padding: '0.4rem',
                 display: 'none',
+                minHeight: '44px',
+                minWidth: '44px',
               }}
             >
               {isMobileMenuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
@@ -158,42 +178,41 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div
           style={{
-            padding: '1rem var(--space-md)',
+            padding: '1.25rem var(--space-md)',
             borderTop: '1px solid var(--border-subtle)',
             backgroundColor: 'var(--bg-secondary)',
           }}
         >
-          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                   style={{
                     display: 'block',
-                    padding: '0.5rem 0',
+                    padding: '0.625rem 0',
                     color: 'var(--text-primary)',
-                    fontSize: '0.95rem',
+                    fontSize: '1rem',
+                    fontWeight: 500,
                   }}
                 >
                   {link.name}
                 </a>
               </li>
             ))}
-            <li>
+            <li style={{ paddingTop: '0.5rem', borderTop: '1px solid var(--border-subtle)' }}>
               <a
                 href="/cv-michele-vantaggi.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={closeMobileMenu}
+                className="btn btn-primary"
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.5rem 0',
-                  color: 'var(--text-primary)',
+                  width: '100%',
+                  justify: 'center',
+                  padding: '0.75rem',
                   fontSize: '0.95rem',
-                  fontFamily: 'var(--font-mono)',
                 }}
               >
                 <FileText size={16} aria-hidden="true" />
